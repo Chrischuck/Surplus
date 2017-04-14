@@ -4,6 +4,7 @@ import mdl from 'material-design-lite/material';
 
 import Header from './header';
 import Login from './login';
+import Account from './account';
 
 export default class App extends Component {
 	/** Gets fired when the route changes.
@@ -19,6 +20,7 @@ export default class App extends Component {
 			<div id="app" style={{backgroundColor: '#f7f7f7'}}>
 				<Router onChange={this.handleRoute}>
 					<Login path="/login" />
+					<Account path="/account" />
 				</Router>
 			</div>
 		);
