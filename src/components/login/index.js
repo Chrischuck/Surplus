@@ -1,6 +1,6 @@
 import { h, Component } from 'preact';
 import style from './style';
-import { Card, TextField } from 'preact-mdl';
+import { Card, TextField, Button } from 'preact-mdl';
 import './styles.css';
 
 export default class Login extends Component {
@@ -45,6 +45,14 @@ export default class Login extends Component {
 						expandable='true'
 						align='middle'
 						/>
+
+					</div>
+					<div>
+						<Button
+						style={{width: '50%'}}
+						>
+							Login
+						</Button>
 					</div>
 				</Card>
 
