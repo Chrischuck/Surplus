@@ -5,6 +5,7 @@ export default class Shelter extends Component {
 	render() {
 		return (
 			<div>
+				
 			</div>
 		);
 	}

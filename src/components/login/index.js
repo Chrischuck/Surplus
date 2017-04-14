@@ -4,7 +4,31 @@ import { Card, TextField, Button } from 'preact-mdl';
 import './styles.css';
 
 export default class Login extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			username: '',
+			password: ''
+		};
+	}
+	onInputChange = event => {
+		this.setState({ [event.target.name]: event.target.value});
+	}
+
+	onSubmit = () => {
+		const { username, password } = this.state;
+		if (!username) {
+			console.log('no username')
+		}
+		if (!password) {
+			console.log('no password')
+		}
+
+		// send to db
+	}
+	
 	render() {
+		const { username, password } = this.state;
 		return (
 			<div class={style.home}>
 				<div style={{
@@ -34,6 +58,9 @@ export default class Login extends Component {
 						width='100%'
 						expandable='true'
 						align='middle'
+						name='username'
+						value={username}
+						onChange={this.onInputChange}
 						/>
 						
 						<TextField
@@ -44,6 +71,9 @@ export default class Login extends Component {
 						width='100%'
 						expandable='true'
 						align='middle'
+						name='password'
+						value={password}
+						onChange={this.onInputChange}
 						/>
 
 					</div>
