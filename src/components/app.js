@@ -3,7 +3,7 @@ import { Router } from 'preact-router';
 import mdl from 'material-design-lite/material';
 
 import Header from './header';
-import Home from './home';
+import Login from './login';
 
 export default class App extends Component {
 	/** Gets fired when the route changes.
@@ -16,9 +16,9 @@ export default class App extends Component {
 
 	render() {
 		return (
-			<div id="app">
+			<div id="app" style={{backgroundColor: '#f7f7f7'}}>
 				<Router onChange={this.handleRoute}>
-					<Home path="/" />
+					<Login path="/login" />
 				</Router>
 			</div>
 		);
