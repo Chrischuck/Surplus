@@ -8,7 +8,8 @@ export default class Login extends Component {
 		super(props);
 		this.state = {
 			username: '',
-			password: ''
+			password: '',
+			error: ''
 		};
 	}
 	onInputChange = event => {
@@ -18,17 +19,17 @@ export default class Login extends Component {
 	onSubmit = () => {
 		const { username, password } = this.state;
 		if (!username) {
-			console.log('no username')
+			this.setState({ error: 'We need your username!'});
 		}
 		if (!password) {
-			console.log('no password')
+			this.setState({ error: 'We need your password!'});
 		}
-
 		// send to db
 	}
 	
 	render() {
-		const { username, password } = this.state;
+		const { username, password, error } = this.state;
+		console.log(error)
 		return (
 			<div class={style.home}>
 				<div style={{
@@ -60,6 +61,7 @@ export default class Login extends Component {
 						align='middle'
 						name='username'
 						value={username}
+						errorMessage={error}
 						onChange={this.onInputChange}
 						/>
 						
@@ -83,12 +85,12 @@ export default class Login extends Component {
 							width: '50%',
 							boxShadow: '0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12)',
 						}}
+						onClick={this.onSubmit}
 						>
 							Login
 						</Button>
 					</div>
 				</Card>
-
 				</div>
 			</div>
 		);
