@@ -1,9 +1,9 @@
 import { h, Component } from 'preact';
 import { Router } from 'preact-router';
+import mdl from 'material-design-lite/material';
 
 import Header from './header';
 import Home from './home';
-import Profile from './profile';
 
 export default class App extends Component {
 	/** Gets fired when the route changes.
@@ -17,11 +17,8 @@ export default class App extends Component {
 	render() {
 		return (
 			<div id="app">
-				<Header />
 				<Router onChange={this.handleRoute}>
 					<Home path="/" />
-					<Profile path="/profile/" user="me" />
-					<Profile path="/profile/:user" />
 				</Router>
 			</div>
 		);
