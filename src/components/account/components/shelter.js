@@ -32,9 +32,9 @@ export default class Shelter extends Component {
         pieData.addColumn('string', 'Topping');
         pieData.addColumn('number', 'Slices');
         pieData.addRows([
-          ['Restaurant 1', 2],
-          ['Restaurant 2', 4],
-          ['Restaurant 3', 1]
+          ['Mountain Mike\'s Pizza', 4],
+          ['Panda Express', 2],
+          ['Yummy Buffet', 1]
         ])
 	    const pieOptions = {'title':'Food Most Bought From',
                        'width':'100%',
@@ -205,8 +205,8 @@ export default class Shelter extends Component {
 						marginRight: 15,
 						textAlign: 'center'
 					}}>
-					<h1
-					>Past Deliveries</h1>
+					<h2
+					>Past Deliveries</h2>
 					<div
 					style={{
 						maxHeight: '830',
