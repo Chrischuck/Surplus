@@ -13,5 +13,25 @@ export default [
         type: 'appetizer',
         name: 'sushi',
         price: 10,
+    },
+        {
+        type: 'appetizer',
+        name: 'sushi',
+        price: 10,
+    },
+        {
+        type: 'appetizer',
+        name: 'sushi',
+        price: 10,
+    },
+        {
+        type: 'appetizer',
+        name: 'sushi',
+        price: 10,
+    },
+        {
+        type: 'appetizer',
+        name: 'sushi',
+        price: 10,
     }
 ];

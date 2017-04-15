@@ -13,16 +13,20 @@ export default class Header extends Component {
 	}
 
 	componentDidMount () {
-		document.getElementById('body').addEventListener('click', this.toggleModal);
+		document.getElementById('body').addEventListener('click', this.closeModal);
   	}
 
 	componentWillUnmount () {
-		document.getElementById('body').removeEventListener('click', this.toggleModal)
+		document.getElementById('body').removeEventListener('click', this.closeModal);
 	}
 
 	toggleModal = event => {
 		event.stopPropagation();
 		this.setState({ isModalOpen: !this.state.isModalOpen });
+	}
+
+	closeModal = () => {
+		this.setState({ isModalOpen: false });
 	}
 
 	logout = () => {

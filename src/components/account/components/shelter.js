@@ -1,9 +1,14 @@
 import { h, Component } from 'preact';
-import { Card, TextField, Button } from 'preact-mdl';
+import { Card, TextField, Button, Switch } from 'preact-mdl';
 import data from '../data/pastOrders';
 
 export default class Shelter extends Component {
-
+	constructor(props) {
+		super(props);
+		this.state = {
+			isModalOpen: false
+		};
+	}
 	componentWillMount() {
 		google.charts.load('current', {'packages':['corechart', 'bar']});
 	}
@@ -94,37 +99,9 @@ export default class Shelter extends Component {
 
         const lineChart2 = new google.visualization.LineChart(document.getElementById('analytics5'));
 
-		// create bar chart
-	    const barData = google.visualization.arrayToDataTable([
-			['Possible Lost vs. Gained Profit Comparison', 'Gained', 'Lost', { role: 'annotation' } ],
-			['Jan', 500, 700, ''],
-			['Feb', 350, 620, ''],
-			['Mar', 250, 400, ''],
-			['Apr', 500, 620, ''],
-			['May', 320, 390, ''],
-			['June', 400, 700, ''],
-			['July', 300, 450, ''],
-			['Aug', 370, 400, ''],
-			['Sep', 100, 300, ''],
-			['Oct', 450, 600, ''],
-			['Nov', 200, 370, ''],
-			['Dec', 270, 400, '']
-		]);
-
-		const barOptions = {
-          	isStacked: 'percent',
-         	height: 250,
-			width: '100%',
-          	legend: {position: 'left', maxLines: 3},
-          	vAxis: {
-            minValue: 0,
-            ticks: [0, .3, .6, .9, 1]
-          }
-        }
-		const barChart = new google.charts.Bar(document.getElementById('analytics3'));
+		
 		// draw charts
 		
-		barChart.draw(barData, barOptions);
     	pieChart.draw(pieData, pieOptions);
 		pieChart2.draw(pieData2, pieOptions2);
 		lineChart.draw(lineData, lineOptions);
@@ -185,7 +162,8 @@ export default class Shelter extends Component {
 					<div
 					style={{
 						maxHeight: '830',
-						height: 830,
+						height: 780,
+						width: 260,
 						overflow: 'scroll'
 					}}
 					>
@@ -193,51 +171,108 @@ export default class Shelter extends Component {
 					</div>
 					</div>
 
-
-					<Card style={{
-						float:'right',
-						boxShadow: '0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12)',
-						width: '100%',
-						height: '100%'
+					<div
+					style={{
+						display: 'flex',
+						flexWrap: 'wrap'
 					}}
-						>
+					>
 						<div
 						style={{
 							display: 'flex',
-							flexWrap: 'wrap',
-							justifyContent: 'center'
+							flexWrap: 'no-wrap',
+							flexDirection: 'row',
+							maxHeight: '100px',
+							marginBottom: 3,
+							width: '100%'
 						}}
-						>	
+						>
+							<Card
+							style={{
+								margin: 3,
+								boxShadow: '0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12)',
+								height: '100px',
+								minHeight: '100px',
+								flexGrow: 1,
+								display: 'flex',
+								alignContent: 'center',
+								textAlign:'center'
+							}}
+							>
+							<h3>Deliver Food Today</h3>
+							<div style={{marginLeft:'47%'}}><div style={{width: '50%'}}><Switch/></div></div>
+							</Card>
+							<Card
+							style={{
+								margin: 3,
+								boxShadow: '0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12)',
+								height: '100px',
+								minHeight: '100px',
+								flexGrow: 1,
+								alignContent: 'center',
+								textAlign:'center'
+							}}
+							>
+							<h3>Pick a Delivery Date</h3>
+							<div>
+								<Button style={{boxShadow: '0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12)'}}>Pick Date</Button>
+							</div>
+							</Card>
+
+							<Card
+							style={{
+								margin: 3,
+								flexGrow: 1,
+								boxShadow: '0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12)',
+								height: '100px',
+								minHeight: '100px',
+								alignContent: 'center',
+								textAlign:'center'
+							}}
+							><h3>$600 Donated This Month</h3></Card>
+						</div>
+
+
+						<Card style={{
+							float:'right',
+							boxShadow: '0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12)',
+							width: '100%',
+							height: '86%',
+							overflow: 'hide'
+						}}
+							>
 							<div
 							style={{
 								display: 'flex',
+								flexWrap: 'wrap',
 								justifyContent: 'center'
 							}}
 							>	
-								<div id='analytics'></div>
-								<div id='analytics4'></div>
+								<div
+								style={{
+									display: 'flex',
+									justifyContent: 'center'
+								}}
+								>	
+									<div id='analytics'></div>
+									<div id='analytics4'></div>
+								</div>
+
+								<div
+								style={{
+									width: '100%'
+								}}
+								id='analytics2'></div>
+								<div
+								style={{
+									width: '100%'
+								}}
+								id='analytics5'></div>
 							</div>
+							
 
-							<div
-							style={{
-								width: '90%'
-							}}
-							id='analytics3'></div>
-							<div
-							style={{
-								width: '100%'
-							}}
-							id='analytics2'></div>
-							<div
-							style={{
-								width: '100%'
-							}}
-							id='analytics5'></div>
-						</div>
-						
-
-					</Card>
-
+						</Card>
+					</div>
 				</div>
 			</div>
 		);
