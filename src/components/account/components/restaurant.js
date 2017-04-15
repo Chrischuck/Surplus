@@ -43,7 +43,7 @@ export default class Restaurant extends Component {
         ])
 	    const pieOptions = {'title':'Top overproduced foods',
                        'width':'100%',
-                       'height': 220};
+                       'height': 240};
 		const pieChart = new google.visualization.PieChart(document.getElementById('analytics'));
 
 		const pieData2 = new google.visualization.DataTable();
@@ -56,7 +56,7 @@ export default class Restaurant extends Component {
         ])
 	    const pieOptions2 = {'title':'Distribution per Homeless Shelter',
                        'width':'100%',
-                       'height': 220};
+                       'height': 240};
 		const pieChart2 = new google.visualization.PieChart(document.getElementById('analytics4'));
 
 		// create line chart
@@ -80,7 +80,7 @@ export default class Restaurant extends Component {
           title: 'Servings sold this year',
           curveType: 'function',
 		  width: '100%',
-		  Height: 250,
+		  Height: 240,
           legend: { position: 'bottom' }
         };
 
@@ -107,7 +107,7 @@ export default class Restaurant extends Component {
           title: 'Tax Deductions',
           curveType: 'function',
 		  width: '100%',
-		  Height: 250,
+		  Height: 240,
           legend: { position: 'bottom' }
         };
 
@@ -132,7 +132,7 @@ export default class Restaurant extends Component {
 
 		const barOptions = {
           	isStacked: 'percent',
-         	height: 250,
+         	height: 240,
 			width: '100%',
           	legend: {position: 'left', maxLines: 3},
           	vAxis: {
