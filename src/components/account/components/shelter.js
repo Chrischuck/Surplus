@@ -186,15 +186,12 @@ export default class Shelter extends Component {
 					}}
 					>
 						<TextField
-						onChange={this.onInputChange}
 						name='newItem'
 						>Month</TextField>
 						<TextField
-						onChange={this.onInputChange}
 						name='newItem'
 						>Day</TextField>
 						<TextField
-						onChange={this.onInputChange}
 						name='newItem'
 						>Year</TextField>
 					</div>
@@ -284,6 +281,25 @@ export default class Shelter extends Component {
 								<Button style={{boxShadow: '0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12)'}} onClick={this.toggleModal}>Pick Date</Button>
 							</div>
 							</Card>
+							<Card
+							style={{
+								margin: 3,
+								flexGrow: 1,
+								boxShadow: '0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12)',
+								height: '100px',
+								minHeight: '100px',
+								alignContent: 'center',
+								textAlign:'center'
+							}}
+							>
+								<div style={{minHeight: 0, maxHeight: 150}}>
+									<TextField style={{minHeight: 0, maxHeight: 150}}>Budget</TextField>
+								</div>
+								<div>
+									<Button style={{boxShadow: '0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12)', margin: 8}}>Confirm Budget</Button>
+								</div>
+							
+							</Card>
 
 							<Card
 							style={{
@@ -296,6 +312,7 @@ export default class Shelter extends Component {
 								textAlign:'center'
 							}}
 							><h3>$600 Donated This Month</h3></Card>
+							
 						</div>
 
 
