@@ -59,6 +59,10 @@ export default class Restaurant extends Component {
 	componentDidMount() {
     	google.charts.setOnLoadCallback(this.drawChart);
 	}
+	
+	componentDidUpdate() {
+		google.charts.setOnLoadCallback(this.drawChart);
+	}
 
 	setNewItem = () => {
 		const { newItem, newPrice, newInitialQuantity } = this.state;
@@ -149,7 +153,7 @@ export default class Restaurant extends Component {
 					justifyContent: 'flex-start',
 					alignItems: 'center'
 				}}>
-					<h1 style={{margin:0}}>
+					<h1 style={{marginBottom:15}}>
 						{i}
 					</h1>
 				</div>
