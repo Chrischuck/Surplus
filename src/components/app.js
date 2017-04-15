@@ -19,6 +19,8 @@ export default class App extends Component {
 	render() {
 		return (
 			<div id="app" style={{backgroundColor: '#f7f7f7'}}>
+				<Header />
+
 				<Router onChange={this.handleRoute}>
 					<Login path="/login" />
 					<Account path="/account" />
