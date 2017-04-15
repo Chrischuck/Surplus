@@ -2,6 +2,7 @@ import { h, Component } from 'preact';
 import { Router } from 'preact-router';
 import mdl from 'material-design-lite/material';
 
+import './bootstrap.css';
 import Header from './header';
 import Login from './login';
 import Account from './account';
