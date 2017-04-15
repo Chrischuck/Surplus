@@ -4,6 +4,25 @@ import menu from '../data/menu';
 import burger from '../assets/classic-burger.png';
 
 export default class Restaurant extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {};
+	}
+
+	addItem = name => {
+		if (!this.state[name])
+			this.setState({[name]: 1 });
+		else
+		this.setState({[name]: this.state[name] += 1});
+	}
+
+	subtractItem = name => {
+		if (!this.state[name])
+			return;
+		if (this.state[name] === 0)
+			return;
+		this.setState({[name]: this.state[name] -= 1});
+	}
 	renderItems = (type) => {
 		const items = menu.filter(i => {
 			return i.type === type;
@@ -17,11 +36,23 @@ export default class Restaurant extends Component {
 			width: 400,
 			height: 400,
 			display: 'flex',
-  			justifyContent: 'center', 
+  			justifyContent: 'center',
   			alignItems: 'center'
-
 		}}
 		>
+
+		<div
+		style={{
+			background: 'rgb(220, 220, 220)',
+			padding:'10px',
+			borderRadius: '50%',
+			boxShadow: '0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12)',
+			margin: 4,
+			marginLeft: 'auto'
+		}}
+		>
+		{ this.state[i.name] || 0 }
+		</div>
 		<div style={{width:300, height:300}}>
 			<img src={burger} style={{maxWidth:'100%', maxHeight:'100%'}} />
 		</div>
@@ -41,9 +72,12 @@ export default class Restaurant extends Component {
 		>
 			<Button
 			style={{boxShadow: '0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12)'}}
+			name={i.name}
+			onClick={() => this.addItem(i.name)}
 			>+</Button>
 			<Button
 			style={{boxShadow: '0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12)'}}
+			onClick={() => this.subtractItem(i.name)}
 			>-</Button>
 		</div>
 		</Card>
@@ -51,6 +85,7 @@ export default class Restaurant extends Component {
 	}
 	
 	render() {
+		console.log(this.state)
 		return (
 			<div>
 				<div
