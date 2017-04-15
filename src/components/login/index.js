@@ -1,6 +1,7 @@
 import { h, Component } from 'preact';
 import style from './style';
 import { Card, TextField, Button } from 'preact-mdl';
+import data from './data/users';
 import './styles.css';
 
 export default class Login extends Component {
@@ -23,17 +24,27 @@ export default class Login extends Component {
 		const { username, password } = this.state;
 		if (!username) {
 			this.setState({ error: 'We need your username!'});
+			return;
 		}
 		if (!password) {
 			this.setState({ error: 'We need your password!'});
+			return;
 		}
-		localStorage.setItem("jwt", "Allowed");
+		if (!data[username]) {
+			this.setState({ error: 'We don\'t seem to have that username'});
+			return;
+		}
+		if (data[username].password !== password) {
+			this.setState({ error: 'Username and password do not match'});
+			return;
+		}
+
+		localStorage.setItem("jwt", data[username].type);
 		window.location.href = 'account';
 	}
 	
 	render() {
 		const { username, password, error } = this.state;
-		console.log(error)
 		return (
 			<div class={style.home}>
 				<div style={{
@@ -43,16 +54,33 @@ export default class Login extends Component {
 				}}>
 					<Card style={{
 						boxShadow: '0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12)',
-						width:'500px',
-						height:'300px',
+						width:'550px',
+						height:'320px',
 						marginTop: 200,
-						textAlign: 'center'
+						textAlign: 'center',
+						justifyContent: 'center',
+						alignItems: 'center'
 					}}>
 					<h1
 					style={{
 						fontFamily: 'Snell Roundhand, cursive'
-					}}>Leftovers</h1>
-
+					}}>Surplus</h1>
+					{
+						error &&
+						<div
+						style={{
+							textAlign: 'center',
+							width: '300px',
+							background: 'rgb(220, 220, 220)',
+							padding:'13px',
+							borderRadius: 20,
+							boxShadow: '0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12)',
+							margin: 4,
+						}}
+						>
+						{ error }
+						</div>
+					}
 					<div
 					style={{textAlign: 'center'}}
 					>
@@ -65,7 +93,6 @@ export default class Login extends Component {
 						align='middle'
 						name='username'
 						value={username}
-						errorMessage={error}
 						onChange={this.onInputChange}
 						/>
 						
@@ -86,7 +113,7 @@ export default class Login extends Component {
 					<div>
 						<Button
 						style={{
-							width: '50%',
+							width: '100%',
 							boxShadow: '0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12)',
 						}}
 						onClick={this.onSubmit}
