@@ -15,45 +15,15 @@ export default class Restaurant extends Component {
 					price: 3,
 					quantity: 4
 				},
-								burger: {
-					name: 'burger',
+					tacos: {
+					name: 'tacos',
 					price: 3,
-					quantity: 4
+					quantity: 5
 				},
-								burgera: {
-					name: 'burger',
+					bread: {
+					name: 'bread',
 					price: 3,
-					quantity: 4
-				},
-								burgers: {
-					name: 'burger',
-					price: 3,
-					quantity: 4
-				},
-								burgers: {
-					name: 'burger',
-					price: 3,
-					quantity: 4
-				},
-								burgersd: {
-					name: 'burger',
-					price: 3,
-					quantity: 4
-				},
-								burgerf: {
-					name: 'burger',
-					price: 3,
-					quantity: 4
-				},
-								burgerg: {
-					name: 'burger',
-					price: 3,
-					quantity: 4
-				},
-								burgegr: {
-					name: 'burger',
-					price: 3,
-					quantity: 4
+					quantity: 7
 				}
 			}
 		};
@@ -209,9 +179,10 @@ export default class Restaurant extends Component {
 		if (!newInitialQuantity) {
 			return;
 		}
+		const newItemId = newItem.replace(/\s+/g, '-');
 		this.setState({
 			menu: {
-				[newItem]: {
+				[newItemId]: {
 					name: newItem,
 					price: newPrice,
 					quantity: newInitialQuantity
@@ -228,21 +199,21 @@ export default class Restaurant extends Component {
 		this.setState({ [event.target.name]: event.target.value });
 	}
 
-	addItem = name => {
+	addItem = id => {
 		let newMenu = this.state.menu;
-		newMenu[name].quantity = parseInt(newMenu[name].quantity, 10);
-		newMenu[name].quantity += 1;
+		newMenu[id].quantity = parseInt(newMenu[id].quantity, 10);
+		newMenu[id].quantity += 1;
 		this.setState({ menu: newMenu });
 	}
 
-	subtractItem = name => {
-		let quantity = this.state.menu[name].quantity;
+	subtractItem = id => {
+		let quantity = this.state.menu[id].quantity;
 		if (quantity === 0)
 			return;
 		let newMenu = this.state.menu;
-		newMenu[name].quantity -= 1;
-		if (newMenu[name].quantity === 0)
-			delete newMenu[name];
+		newMenu[id].quantity -= 1;
+		if (newMenu[id].quantity === 0)
+			delete newMenu[id];
 		this.setState({ menu: newMenu });
 	}
 	renderItems = () => {
@@ -288,7 +259,7 @@ export default class Restaurant extends Component {
 					alignItems: 'center'
 				}}>
 					<h1 style={{marginBottom:15}}>
-						{i}
+						{menu[i].name}
 					</h1>
 				</div>
 
