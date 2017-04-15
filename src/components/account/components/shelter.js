@@ -41,19 +41,6 @@ export default class Shelter extends Component {
                        'height': 220};
 		const pieChart = new google.visualization.PieChart(document.getElementById('analytics'));
 
-		const pieData2 = new google.visualization.DataTable();
-        pieData2.addColumn('string', 'Topping');
-        pieData2.addColumn('number', 'Slices');
-        pieData2.addRows([
-          ['Shelter 1', 2],
-          ['Shelter 2', 2],
-          ['Shelter 3', 1]
-        ])
-	    const pieOptions2 = {'title':'Distribution per Homeless Shelter',
-                       'width':'100%',
-                       'height': 220};
-		const pieChart2 = new google.visualization.PieChart(document.getElementById('analytics4'));
-
 		// create line chart
 		const lineData = google.visualization.arrayToDataTable([
           ['Month', 'Dollars'],
@@ -108,9 +95,7 @@ export default class Shelter extends Component {
 
         const lineChart2 = new google.visualization.LineChart(document.getElementById('analytics5'));
 
-		
 		// draw charts
-		
     	pieChart.draw(pieData, pieOptions);
 		lineChart.draw(lineData, lineOptions);
 		lineChart2.draw(lineData2, lineOptions2);
