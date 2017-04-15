@@ -1,14 +1,19 @@
 import { h, Component } from 'preact';
-import { Card, TextField, Button } from 'preact-mdl';
+import { Card, TextField, Button, Dialog } from 'preact-mdl';
 import menu from '../data/menu';
 import burger from '../assets/classic-burger.png';
+
 
 export default class Restaurant extends Component {
 	constructor(props) {
 		super(props);
-		this.state = {};
+		this.state = {
+			isModalOpen: false
+		};
 	}
-
+	addNewItem = () => {
+		this.setState({ isModalOpen: true});
+	}
 	addItem = name => {
 		if (!this.state[name])
 			this.setState({[name]: 1 });
@@ -23,21 +28,20 @@ export default class Restaurant extends Component {
 			return;
 		this.setState({[name]: this.state[name] -= 1});
 	}
-	renderItems = (type) => {
-		const items = menu.filter(i => {
-			return i.type === type;
-		});
-		return items.map(i =>
+	renderItems = () => {
+		return menu.map(i =>
 		<Card
 		style={{
 			boxShadow: '0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12)',
 			margin: 10,
 			position: 'relative',
 			width: 400,
-			height: 400,
+			height: 200,
 			display: 'flex',
   			justifyContent: 'center',
-  			alignItems: 'center'
+  			alignItems: 'center',
+			marginLeft: 0,
+			marginRight: 0
 		}}
 		>
 
@@ -53,13 +57,11 @@ export default class Restaurant extends Component {
 		>
 		{ this.state[i.name] || 0 }
 		</div>
-		<div style={{width:300, height:300}}>
-			<img src={burger} style={{maxWidth:'100%', maxHeight:'100%'}} />
-		</div>
+
 		<div
 		style={{
 			display: 'flex',
-			justifyContent: 'center', 
+			justifyContent: 'flex-start',
 			alignItems: 'center'
 		}}>
 			<h1 style={{margin:0}}>
@@ -85,44 +87,43 @@ export default class Restaurant extends Component {
 	}
 	
 	render() {
-		console.log(this.state)
+		console.log(this.state);
 		return (
 			<div>
-				<div
-				style={{
+				<Dialog
+				 style={{
+					width: 500,
+					height: 400,
+					zIndex: 9999,
 					display: 'flex',
-					justifyContent: 'center', 
-					alignItems: 'center'
-				}}>
-					<h1>
-						appetizer
-					</h1>
-				</div>
+					flexWrap: 'wrap',
+					flexDirection: 'center',
+					justifyContent: 'center',
+					position: 'absolute'
+				 }}
+				 modal={true}
+				 open={this.state.isModalOpen}
+				>
+
+
+				<Button
+				style={{boxShadow: '0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12)'}}
+				onClick={this.addNewItem}
+				>Add Item</Button>
+
+				</Dialog>
 				<div
 				style={{
 					display: 'flex',
 					flexWrap: 'wrap',
-					flexDirection: 'row'
+					flexDirection: 'column',
+					width: 400
 				}}>
-				{this.renderItems('appetizer')}
-				</div>
-				<div
-				style={{
-					display: 'flex',
-					justifyContent: 'center', 
-					alignItems: 'center'
-				}}>
-					<h1>
-						entre
-					</h1>
-				</div>
-				<div
-				style={{
-					display: 'flex',
-					flexWrap: 'wrap',
-					flexDirection: 'row'
-				}}>
-				{this.renderItems('entre')}
+				<Button
+				style={{boxShadow: '0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12)'}}
+				onClick={this.addNewItem}
+				>Add Item</Button>
+				{this.renderItems()}
 				</div>
 			</div>
 		);
