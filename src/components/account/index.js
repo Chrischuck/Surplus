@@ -7,8 +7,10 @@ import Shelter from './components/shelter';
 export default class Account extends Component {
 	render() {
 		return (
-			<div class={style.home} style={{ marginTop: '15px'}}>
-                <Restaurant />
+			<div class={style.home} >
+                <div style={{ marginTop: '15px'}}>
+                    <Restaurant />
+                </div>
 			</div>
 		);
 	}
