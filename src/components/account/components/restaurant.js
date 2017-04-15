@@ -37,8 +37,8 @@ export default class Restaurant extends Component {
         pieData.addColumn('string', 'Topping');
         pieData.addColumn('number', 'Slices');
         pieData.addRows([
-          ['Pad Thai', 3],
-          ['Yellow Curry', 1],
+          ['Combination Pizza', 3],
+          ['Thai', 1],
           ['Broccoli Stirfry', 1]
         ])
 	    const pieOptions = {'title':'Top overproduced foods',
@@ -50,9 +50,9 @@ export default class Restaurant extends Component {
         pieData2.addColumn('string', 'Topping');
         pieData2.addColumn('number', 'Slices');
         pieData2.addRows([
-          ['Shelter 1', 2],
-          ['Shelter 2', 2],
-          ['Shelter 3', 1]
+          ['Berkeley Food & Housing Project', 2],
+          ['Sacred Heart Community Service', 2],
+          ['CityTeam Ministries San Jose', 1]
         ])
 	    const pieOptions2 = {'title':'Distribution per Homeless Shelter',
                        'width':'100%',
