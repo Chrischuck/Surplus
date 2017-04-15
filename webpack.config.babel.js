@@ -130,23 +130,7 @@ module.exports = {
 			// this is actually the property name https://github.com/kimhou/replace-bundle-webpack-plugin/issues/1
 			partten: /throw\s+(new\s+)?[a-zA-Z]+Error\s*\(/g,
 			replacement: () => 'return;('
-		}]),
-		new OfflinePlugin({
-			relativePaths: false,
-			AppCache: false,
-			excludes: ['_redirects'],
-			ServiceWorker: {
-				events: true
-			},
-			cacheMaps: [
-				{
-					match: /.*/,
-					to: '/',
-					requestTypes: ['navigate']
-				}
-			],
-			publicPath: '/'
-		})
+		}])
 	] : []),
 
 	stats: { colors: true },
