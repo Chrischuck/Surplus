@@ -17,12 +17,13 @@ export default class App extends Component {
 	};
 
 	render() {
+		const jwt = localStorage.getItem("jwt");
 		return (
 			<div id="app" style={{backgroundColor: '#f7f7f7'}}>
-				<Header />
+				{ jwt && <Header /> }
 
 				<Router onChange={this.handleRoute}>
-					<Login path="/login" />
+					<Login path="/login" default/>
 					<Account path="/account" />
 				</Router>
 			</div>

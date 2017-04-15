@@ -6,6 +6,9 @@ import './styles.css';
 export default class Login extends Component {
 	constructor(props) {
 		super(props);
+		const jwt = localStorage.getItem("jwt");
+		if (jwt)
+			window.location.href = 'account';
 		this.state = {
 			username: '',
 			password: '',
@@ -24,7 +27,8 @@ export default class Login extends Component {
 		if (!password) {
 			this.setState({ error: 'We need your password!'});
 		}
-		// send to db
+		localStorage.setItem("jwt", "Allowed");
+		window.location.href = 'account';
 	}
 	
 	render() {
