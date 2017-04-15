@@ -32,11 +32,11 @@ export default class Shelter extends Component {
         pieData.addColumn('string', 'Topping');
         pieData.addColumn('number', 'Slices');
         pieData.addRows([
-          ['Pad Thai', 3],
-          ['Yellow Curry', 1],
-          ['Broccoli Stirfry', 1]
+          ['Restaurant 1', 2],
+          ['Restaurant 2', 4],
+          ['Restaurant 3', 1]
         ])
-	    const pieOptions = {'title':'Top overproduced foods',
+	    const pieOptions = {'title':'Food Most Bought From',
                        'width':'100%',
                        'height': 220};
 		const pieChart = new google.visualization.PieChart(document.getElementById('analytics'));
@@ -56,23 +56,23 @@ export default class Shelter extends Component {
 
 		// create line chart
 		const lineData = google.visualization.arrayToDataTable([
-          ['Month', 'Appetizers', 'Entres'],
-          ['Jan',  300,      100],
-          ['Feb',  350,      130],
-          ['Mar',  400,       80],
-          ['Apr',  420,      100],
-		  ['May',  375,      150],
-		  ['June',  300,      200],
-		  ['July',  290,      240],
-		  ['Aug',  320,      180],
-		  ['Sep',  330,      230],
-		  ['Oct',  350,      350],
-		  ['Nov',  400,      300],
-		  ['Dec',  410,      260]
+          ['Month', 'Dollars'],
+          ['Jan',  600],
+          ['Feb',  450],
+          ['Mar',  500],
+          ['Apr',  420],
+		  ['May',  675],
+		  ['June',  700],
+		  ['July',  490],
+		  ['Aug',  520],
+		  ['Sep',  400],
+		  ['Oct',  640],
+		  ['Nov',  400],
+		  ['Dec',  210]
         ]);
 
         const lineOptions = {
-          title: 'Servings sold this year',
+          title: 'Monthy Budget',
           curveType: 'function',
 		  width: '100%',
 		  Height: 250,
@@ -83,23 +83,23 @@ export default class Shelter extends Component {
 
 		// line 2 graph 
 		const lineData2 = google.visualization.arrayToDataTable([
-          ['Month', 'Dollars'],
-          ['Jan',  50],
-          ['Feb',  35],
-          ['Mar',  40],
-          ['Apr',  42],
-		  ['May',  37],
-		  ['June',  30],
-		  ['July',  29],
-		  ['Aug',  32],
-		  ['Sep',  33],
-		  ['Oct',  35],
-		  ['Nov',  40],
-		  ['Dec',  41]
+          ['Month', 'People'],
+          ['Jan',  200],
+          ['Feb',  220],
+          ['Mar',  300],
+          ['Apr',  190],
+		  ['May',  150],
+		  ['June',  160],
+		  ['July',  210],
+		  ['Aug',  230],
+		  ['Sep',  190],
+		  ['Oct',  250],
+		  ['Nov',  300],
+		  ['Dec',  400]
         ]);
 
         const lineOptions2 = {
-          title: 'Tax Deductions',
+          title: 'People Fed',
           curveType: 'function',
 		  width: '100%',
 		  Height: 250,
@@ -112,7 +112,6 @@ export default class Shelter extends Component {
 		// draw charts
 		
     	pieChart.draw(pieData, pieOptions);
-		pieChart2.draw(pieData2, pieOptions2);
 		lineChart.draw(lineData, lineOptions);
 		lineChart2.draw(lineData2, lineOptions2);
     }
