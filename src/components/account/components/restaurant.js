@@ -63,6 +63,7 @@ export default class Restaurant extends Component {
 
 	addItem = name => {
 		let newMenu = this.state.menu;
+		newMenu[name].quantity = parseInt(newMenu[name].quantity, 10);
 		newMenu[name].quantity += 1;
 		this.setState({ menu: newMenu });
 	}
