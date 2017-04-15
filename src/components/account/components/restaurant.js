@@ -8,12 +8,21 @@ export default class Restaurant extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			isModalOpen: false
+			isModalOpen: false,
+			newItem: '',
+			newPrice: '',
+			newInitialQuantity: '',
+			menu: []
 		};
 	}
-	addNewItem = () => {
-		this.setState({ isModalOpen: true});
+	toggleModal = () => {
+		this.setState({ isModalOpen: !this.state.isModalOpen});
 	}
+
+	setNewItem = () => {
+		
+	}
+
 	addItem = name => {
 		if (!this.state[name])
 			this.setState({[name]: 1 });
@@ -90,28 +99,39 @@ export default class Restaurant extends Component {
 		console.log(this.state);
 		return (
 			<div>
-				<Dialog
-				 style={{
-					width: 500,
-					height: 400,
-					zIndex: 9999,
-					display: 'flex',
-					flexWrap: 'wrap',
-					flexDirection: 'center',
-					justifyContent: 'center',
-					position: 'absolute'
-				 }}
-				 modal={true}
-				 open={this.state.isModalOpen}
-				>
+				{
+					this.state.isModalOpen &&
+					<Dialog
+					modal={true}
+					open={this.state.isModalOpen}
+					style={{
+						width: 500,
+						height: 300,
+						zIndex: 9999,
+						display: 'flex',
+						flexWrap: 'wrap',
+						justifyContent: 'center'
+					}}
+					>
+					<div
+					style={{
+						textAlign: 'center'
+					}}
+					>
+						<TextField>Item</TextField>
+						<TextField>Price</TextField>
+						<TextField>Initial Quantity</TextField>
+					</div>
 
-
-				<Button
-				style={{boxShadow: '0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12)'}}
-				onClick={this.addNewItem}
-				>Add Item</Button>
-
-				</Dialog>
+					<Button
+					style={{boxShadow: '0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12)', margin: 5}}
+					>Add Item</Button>
+					<Button
+					style={{boxShadow: '0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12)', margin: 5}}
+					onClick={this.toggleModal}
+					>Cancel</Button>
+					</Dialog>
+				}
 				<div
 				style={{
 					display: 'flex',
@@ -120,8 +140,9 @@ export default class Restaurant extends Component {
 					width: 400
 				}}>
 				<Button
+				disabled={this.state.isModalOpen}
 				style={{boxShadow: '0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12)'}}
-				onClick={this.addNewItem}
+				onClick={this.toggleModal}
 				>Add Item</Button>
 				{this.renderItems()}
 				</div>
