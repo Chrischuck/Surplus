@@ -166,6 +166,7 @@ export default class Restaurant extends Component {
 	
 	componentDidUpdate() {
 		google.charts.setOnLoadCallback(this.drawChart);
+
 	}
 
 	setNewItem = () => {
@@ -357,7 +358,8 @@ export default class Restaurant extends Component {
 					style={{
 						maxHeight: '830',
 						height: 830,
-						overflow: 'scroll'
+						overflow: 'scroll',
+						width:'100%'
 					}}
 					>
 						{this.renderItems()}
