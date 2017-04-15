@@ -20,6 +20,31 @@ export default class Restaurant extends Component {
 			}
 		};
 	}
+	componentWillMount() {
+		google.charts.load('current', {'packages':['corechart']});
+	}
+	drawChart = () => {
+		const data = new google.visualization.DataTable();
+        data.addColumn('string', 'Topping');
+        data.addColumn('number', 'Slices');
+        data.addRows([
+          ['Mushrooms', 3],
+          ['Onions', 1],
+          ['Olives', 1],
+          ['Zucchini', 1],
+          ['Pepperoni', 2]
+        ])
+
+	    const options = {'title':'How Much Pizza I Ate Last Night',
+                       'width':400,
+                       'height':300};
+		const chart = new google.visualization.PieChart(document.getElementById('analytics'));
+		const chart2 = new google.visualization.PieChart(document.getElementById('analytics2'));
+
+    	chart.draw(data, options);
+		chart2.draw(data, options);
+
+    }
 	toggleModal = () => {
 		if (this.state.isModalOpen === true) {
 			this.setState({
@@ -29,6 +54,10 @@ export default class Restaurant extends Component {
 			});
 		}
 		this.setState({ isModalOpen: !this.state.isModalOpen});
+	}
+
+	componentDidMount() {
+    	google.charts.setOnLoadCallback(this.drawChart);
 	}
 
 	setNewItem = () => {
@@ -222,8 +251,11 @@ export default class Restaurant extends Component {
 						boxShadow: '0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12)',
 						width: '100%',
 						height: '100%'
-						}}>
-						Analytics
+					}}
+						>
+						<div id='analytics'></div>
+						<div id='analytics2'></div>
+
 					</Card>
 
 				</div>
