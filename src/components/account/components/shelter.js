@@ -124,7 +124,9 @@ export default class Shelter extends Component {
 					margin: 10,
 					position: 'relative',
 					width: '100%',
-					height: 100,
+					height: 150,
+					maxheight: 150,
+					minHeight: 0,
 					display: 'flex',
 					justifyContent: 'center',
 					alignItems: 'center',
@@ -139,12 +141,23 @@ export default class Shelter extends Component {
 					justifyContent: 'flex-start',
 					alignItems: 'center'
 				}}>
-					<h1 style={{marginBottom:15}}>
+					<h2 style={{marginBottom:15}}>
 						{i.name}
-					</h1>
+					</h2>
 				</div>
-
-
+					<div
+					style={{
+						display: 'flex',
+						justifyContent: 'flex-start',
+						alignItems: 'center'
+					}}>
+					<h4 style={{paddingRight: 20}}>
+						date: {i.date}
+					</h4>
+					<h4>
+						servings: {i.servings}
+					</h4>
+					</div>
 				</Card>
 		);
 	}
