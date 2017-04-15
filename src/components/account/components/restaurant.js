@@ -230,7 +230,8 @@ export default class Restaurant extends Component {
 					margin: 10,
 					position: 'relative',
 					width: '100%',
-					height: 100,
+					height: 150,
+					minHeight:100,
 					display: 'flex',
 					justifyContent: 'center',
 					alignItems: 'center',
@@ -256,15 +257,16 @@ export default class Restaurant extends Component {
 				style={{
 					display: 'flex',
 					justifyContent: 'flex-start',
-					alignItems: 'center'
+					alignItems: 'center',
+					marginTop: 0,
 				}}>
-					<h1 style={{marginBottom:15}}>
+					<h2 style={{marginBottom:15, marginTop: 0}}>
 						{menu[i].name}
-					</h1>
+					</h2>
 				</div>
 
 				<div
-					style={{bottom: '2px'}}
+					style={{bottom: '4px'}}
 				>
 					<Button
 					style={{boxShadow: '0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12)'}}
