@@ -1,5 +1,5 @@
 import { h, Component } from 'preact';
-import { Card, TextField, Button, Switch } from 'preact-mdl';
+import { Card, TextField, Button, Switch, Dialog } from 'preact-mdl';
 import data from '../data/pastOrders';
 
 export default class Shelter extends Component {
@@ -9,12 +9,21 @@ export default class Shelter extends Component {
 			isModalOpen: false
 		};
 	}
+
 	componentWillMount() {
 		google.charts.load('current', {'packages':['corechart', 'bar']});
 	}
 
 	componentDidMount() {
     	google.charts.setOnLoadCallback(this.drawChart);
+	}
+
+	componentDidUpdate() {
+		google.charts.setOnLoadCallback(this.drawChart);
+	}
+
+	toggleModal = () => {
+		this.setState({ isModalOpen: !this.state.isModalOpen });
 	}
 
 	drawChart = () => {
@@ -143,6 +152,51 @@ export default class Shelter extends Component {
 	render() {
 		return (
 			<div>
+				{
+					this.state.isModalOpen &&
+					<Dialog
+					modal={true}
+					open={this.state.isModalOpen}
+					style={{
+						width: 500,
+						height: 300,
+						zIndex: 9999,
+						display: 'flex',
+						flexWrap: 'wrap',
+						justifyContent: 'center'
+					}}
+					>
+					<div
+					style={{
+						textAlign: 'center',
+						width: 400,
+						float: 'left'
+					}}
+					>
+						<TextField
+						onChange={this.onInputChange}
+						name='newItem'
+						>Month</TextField>
+						<TextField
+						onChange={this.onInputChange}
+						name='newItem'
+						>Day</TextField>
+						<TextField
+						onChange={this.onInputChange}
+						name='newItem'
+						>Year</TextField>
+					</div>
+
+					<Button
+					style={{boxShadow: '0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12)', margin: 5}}
+					onClick={this.toggleModal}
+					>Cancel</Button>
+					<Button
+					style={{boxShadow: '0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12)', margin: 5}}
+					onClick={this.toggleModal}
+					>Set Date</Button>
+					</Dialog>
+				}
 				<div
 					style={{
 						display:'flex'
@@ -215,7 +269,7 @@ export default class Shelter extends Component {
 							>
 							<h3>Pick a Delivery Date</h3>
 							<div>
-								<Button style={{boxShadow: '0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12)'}}>Pick Date</Button>
+								<Button style={{boxShadow: '0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12)'}} onClick={this.toggleModal}>Pick Date</Button>
 							</div>
 							</Card>
 
