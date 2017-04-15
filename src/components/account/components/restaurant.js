@@ -14,6 +14,46 @@ export default class Restaurant extends Component {
 					name: 'burger',
 					price: 3,
 					quantity: 4
+				},
+								burger: {
+					name: 'burger',
+					price: 3,
+					quantity: 4
+				},
+								burgera: {
+					name: 'burger',
+					price: 3,
+					quantity: 4
+				},
+								burgers: {
+					name: 'burger',
+					price: 3,
+					quantity: 4
+				},
+								burgers: {
+					name: 'burger',
+					price: 3,
+					quantity: 4
+				},
+								burgersd: {
+					name: 'burger',
+					price: 3,
+					quantity: 4
+				},
+								burgerf: {
+					name: 'burger',
+					price: 3,
+					quantity: 4
+				},
+								burgerg: {
+					name: 'burger',
+					price: 3,
+					quantity: 4
+				},
+								burgegr: {
+					name: 'burger',
+					price: 3,
+					quantity: 4
 				}
 			}
 		};
@@ -337,10 +377,18 @@ export default class Restaurant extends Component {
 					}}>
 					<Button
 					disabled={this.state.isModalOpen}
-					style={{boxShadow: '0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12)'}}
+					style={{boxShadow: '0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12)', height: '40.5px'}}
 					onClick={this.toggleModal}
 					>Add Item</Button>
-					{this.renderItems()}
+					<div
+					style={{
+						maxHeight: '830',
+						height: 830,
+						overflow: 'scroll'
+					}}
+					>
+						{this.renderItems()}
+					</div>
 					</div>
 
 
