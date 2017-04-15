@@ -18,9 +18,6 @@ export default class Restaurant extends Component {
 			}
 		};
 	}
-	shouldComponentUpdate() {
-
-	}
 	componentWillMount() {
 		google.charts.load('current', {'packages':['corechart', 'bar']});
 	}
