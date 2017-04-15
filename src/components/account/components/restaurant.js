@@ -90,7 +90,7 @@ export default class Restaurant extends Component {
 					boxShadow: '0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12)',
 					margin: 10,
 					position: 'relative',
-					width: 400,
+					width: '100%',
 					height: 100,
 					display: 'flex',
 					justifyContent: 'center',
@@ -162,7 +162,9 @@ export default class Restaurant extends Component {
 					>
 					<div
 					style={{
-						textAlign: 'center'
+						textAlign: 'center',
+						width: 400,
+						float: 'left'
 					}}
 					>
 						<TextField
@@ -193,18 +195,36 @@ export default class Restaurant extends Component {
 					</Dialog>
 				}
 				<div
-				style={{
-					display: 'flex',
-					flexWrap: 'wrap',
-					flexDirection: 'column',
-					width: 400
-				}}>
-				<Button
-				disabled={this.state.isModalOpen}
-				style={{boxShadow: '0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12)'}}
-				onClick={this.toggleModal}
-				>Add Item</Button>
-				{this.renderItems()}
+					style={{
+						display:'flex'
+					}}
+				>
+					<div
+					style={{
+						display: 'flex',
+						flexWrap: 'wrap',
+						flexDirection: 'column',
+						width: 400,
+						marginRight: 15
+					}}>
+					<Button
+					disabled={this.state.isModalOpen}
+					style={{boxShadow: '0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12)'}}
+					onClick={this.toggleModal}
+					>Add Item</Button>
+					{this.renderItems()}
+					</div>
+
+
+					<Card style={{
+						float:'right',
+						boxShadow: '0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12)',
+						width: '100%',
+						height: '100%'
+						}}>
+						Analytics
+					</Card>
+
 				</div>
 			</div>
 		);
