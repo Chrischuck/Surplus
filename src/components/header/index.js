@@ -1,7 +1,7 @@
 import { h, Component } from 'preact';
 import { Link } from 'preact-router';
 import { Dialog } from 'preact-mdl';
-import logo from './assets/pic.jpg';
+import logo from '../../assets/icons/logo192.png';
 import style from './style';
 
 export default class Header extends Component {
@@ -49,6 +49,7 @@ export default class Header extends Component {
 					onClick={this.toggleModal}
 					>
 						<img style={{
+							backgroundColor: 'white',
 							maxHeight: '100%',
 							maxWidth:'100%',
 							borderRadius: '50%',
