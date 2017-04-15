@@ -6,7 +6,8 @@ export default class Shelter extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			isModalOpen: false
+			isModalOpen: false,
+			didCompleteBudget: false
 		};
 	}
 
@@ -21,7 +22,9 @@ export default class Shelter extends Component {
 	componentDidUpdate() {
 		google.charts.setOnLoadCallback(this.drawChart);
 	}
-
+	finishBudget = () => {
+		this.setState({ didCompleteBudget: true });
+	}
 	toggleModal = () => {
 		this.setState({ isModalOpen: !this.state.isModalOpen });
 	}
@@ -278,10 +281,10 @@ export default class Shelter extends Component {
 							}}
 							>
 								<div style={{minHeight: 0, maxHeight: 150}}>
-									<TextField style={{minHeight: 0, maxHeight: 150}}>Budget</TextField>
+									<TextField disabled={this.state.didCompleteBudget} style={{minHeight: 0, maxHeight: 150}}>{ this.state.didCompleteBudget ? 'Complete!' : 'Budget'}</TextField>
 								</div>
 								<div>
-									<Button style={{boxShadow: '0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12)', margin: 8}}>Confirm Budget</Button>
+									<Button  disabled={this.state.didCompleteBudget} onClick={this.finishBudget} style={{boxShadow: '0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12)', margin: 8}}>Confirm Budget</Button>
 								</div>
 							
 							</Card>
