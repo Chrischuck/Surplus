@@ -18,6 +18,7 @@ Our goals for surplus was to be able to help offset waste foods from restaurants
 
 ## Code Goals
 - [ ] Modularize code and decrease inline styling
+- [ ] Update dependencies (Webpack 2 and preact 8)
 - [ ] Get rid of all unused CSS
 - [ ] Replace Google charts with a more preact friendly lib
 - [ ] Increase performance/render times
