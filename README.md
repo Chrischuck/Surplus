@@ -11,3 +11,7 @@ Our goals for surplus was to be able to help offset waste foods from restaurants
 1) Clone this repo  
 2) Run `npm install` and then `npm run dev` to set up the dev server  
 3) To set up a test production server run `npm run start`
+
+## Usage  
+1) Restaurant account name: `restaurant` with password: `123abc`  
+2) Homeless shelter account name: `shelter` with password: `123abc`  
