@@ -4,7 +4,7 @@
 
 Written using preact, webpack, preact-mdl and love!
 
-Our goals for surplus was to be able to help offset waste foods from restaurants by allowing them to sell their leftovers for discounted prices to homeless shelters. Furthermore, we brought analytics into play so that the restaurants could see what foods they may be overproducing to help curb excess waste before it even begins.  
+Our goals with Surplus was to be able to help offset waste foods from restaurants by allowing them to sell their leftovers for discounted prices to homeless shelters. Furthermore, we brought analytics into play so that the restaurants could see what foods they may be overproducing to help curb excess waste before it even begins.  
 
 
 ## Installation
