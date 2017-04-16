@@ -15,3 +15,9 @@ Our goals for surplus was to be able to help offset waste foods from restaurants
 ## Usage  
 1) Restaurant account name: `restaurant` with password: `123abc`  
 2) Homeless shelter account name: `shelter` with password: `123abc`  
+
+## Code Goals
+- [ ] Modularize code and decrease inline styling
+- [ ] Get rid of all unused CSS
+- [ ] Replace Google charts with a more preact friendly lib
+- [ ] Increase performance/render times
