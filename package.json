@@ -1,7 +1,7 @@
 {
-  "name": "leftovers",
+  "name": "Surplus",
   "version": "1.0.0",
-  "description": "Ready-to-go Preact starter project powered by webpack.",
+  "description": "Help lessen food waste by streamlining restaurant leftovers to homeless shelters.",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --hot --progress",
     "start": "serve build -s -c 1",
@@ -14,8 +14,8 @@
   },
   "keywords": [
     "preact",
-    "boilerplate",
-    "webpack"
+    "webpack",
+    "love"
   ],
   "license": "MIT",
   "author": "Jason Miller <jason@developit.ca>",

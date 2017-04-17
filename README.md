@@ -6,6 +6,14 @@ Written using preact, webpack, preact-mdl and love!
 
 Our goals with Surplus was to be able to help offset waste foods from restaurants by allowing them to sell their leftovers for discounted prices to homeless shelters. Furthermore, we brought analytics into play so that the restaurants could see what foods they may be overproducing to help curb excess waste before it even begins.  
 
+## Screenshots  
+### Login Page with error handling for invalid parameters  
+
+<img src="./assets/login.jpg" style="width: 250px; height:250px"/> <img src="./assets/loginerr.jpg" style="width: 250px; height:250px"/>  
+
+### Dashboards for the restaurant and homeless shelter respectively  
+
+ <img src="./assets/restaurant.jpg" style="width: 250px; height:250px"/> <img src="./assets/shelter.jpg" style="width: 250px; height:250px"/> 
 
 ## Installation
 1) Clone this repo  
