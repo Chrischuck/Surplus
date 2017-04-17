@@ -9,11 +9,11 @@ Our goals with Surplus was to be able to help offset waste foods from restaurant
 ## Screenshots  
 ### Login Page with error handling for invalid parameters  
 
-<img src="src/assets/pics/login.png" width="440px" height="360px"/> <img src="src/assets/pics/loginerr.png" width="440px" height="360px"/>  
+<img src="src/assets/pics/login.png" width="440px" height="350px"/> <img src="src/assets/pics/loginerr.png" width="440px" height="350px"/>  
 
 ### Dashboards for the restaurant and homeless shelter respectively  
 
- <img src="src/assets/pics/restaurant.png" width="440px" height="360px"/> <img src="src/assets/pics/shelter.png" width="440px" height="360px"/> 
+ <img src="src/assets/pics/restaurant.png" width="440px" height="350px"/> <img src="src/assets/pics/shelter.png" width="440px" height="350px"/> 
 
 ## Installation
 1) Clone this repo  
